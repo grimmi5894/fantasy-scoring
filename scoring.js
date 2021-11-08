@@ -6,3 +6,10 @@ const calculatePassingScore = (player) => {
   return yards + touchdowns + interceptions
 }
 
+const calculateRushingScore = (player) => {
+  const yards = player.stats.rushing.yards / 10
+  const touchdowns = player.stats.rushing.touchdowns * 6
+  const fumbles = player.stats.rushing.fumbles * -3
+
+  return yards + touchdowns + fumbles
+}
