@@ -13,3 +13,12 @@ const calculateRushingScore = (player) => {
 
   return yards + touchdowns + fumbles
 }
+
+const calculateReceivingScore = (player) => {
+  const receptions = player.stats.receiving.receptions
+  const yards = player.stats.receiving.yards / 10
+  const touchdowns = player.stats.receiving.touchdowns * 6
+  const fumbles = player.stats.receiving.fumbles * -3
+
+  return receptions + yards + touchdowns + fumbles
+}
