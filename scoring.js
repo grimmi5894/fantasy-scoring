@@ -34,3 +34,25 @@ const calculateReturnScore = (player) => {
   return kickReturnYards + kickReturnTouchdowns + kickReturnFumbles +
     puntReturnYards + puntReturnTouchdowns + puntReturnFumbles
 }
+
+const calculateScore = (player) => {
+  switch (player.position) {
+    case 'QB':
+      return calculatePassingScore(player) +
+        calculateRushingScore(player)
+    case 'RB':
+      return calculateRushingScore(player) +
+        calculateReceivingScore(player) +
+        calculateReturnScore(player)
+    case 'WR':
+      return calculateRushingScore(player) +
+      calculateReceivingScore(player) +
+      calculateReturnScore(player)
+    case 'TE':
+      return calculateReceivingScore(player)
+    default:
+      return 0
+  }
+}
+
+module.exports = calculateScore
