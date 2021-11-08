@@ -22,3 +22,15 @@ const calculateReceivingScore = (player) => {
 
   return receptions + yards + touchdowns + fumbles
 }
+
+const calculateReturnScore = (player) => {
+  const kickReturnYards = player.stats.return.kickreturn.yards / 15
+  const kickReturnTouchdowns = player.stats.return.kickreturn.touchdowns * 6
+  const kickReturnFumbles = player.stats.return.kickreturn.fumbles * -3
+  const puntReturnYards = player.stats.return.puntreturn.yards / 15
+  const puntReturnTouchdowns = player.stats.return.puntreturn.touchdowns * 6
+  const puntReturnFumbles = player.stats.return.puntreturn.fumbles * -3
+
+  return kickReturnYards + kickReturnTouchdowns + kickReturnFumbles +
+    puntReturnYards + puntReturnTouchdowns + puntReturnFumbles
+}
